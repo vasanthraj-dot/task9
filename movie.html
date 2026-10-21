@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="./movie.css"">
+</head>
+<body>
+    <div class="head">
+        <h1>SpendSmart</h1>
+        <p>Track your money, manage your spending.</p>
+        <label>Monthly Budget (₹)
+            <input type="number" id="budget" placeholder="Enter budget">
+        </label>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <p>This Month's Spending</p>
+            <h2 id="spent">₹0.00</h2>
+        </div>
+        <div class="card">
+            <p>Expenses This Month</p>
+            <h2 id="count">0</h2>
+        </div>
+        <div class="card">
+            <p>Budget Remaining</p>
+            <h2 id="left">₹0.00</h2>
+            <p id="warning"></p>
+        </div>
+    </div>
+
+    <div class="box">
+        <h2>Add an Expense</h2>
+        <form id="form">
+            <input id="name" placeholder="Expense name" required>
+            <input id="amount" type="number" min="0" placeholder="Amount (₹)" required>
+            <select id="category" required>
+                <option value="">Choose Category</option>
+                <option>Food</option>
+                <option>Travel</option>
+                <option>Shopping</option>
+                <option>Education</option>
+                <option>Bills</option>
+                <option>Other</option>
+            </select>
+            <input id="date" type="date" required>
+            <button type="submit">Add Expense</button>
+        </form>
+        <p id="message"></p>
+    </div>
+
+    <div class="panel">
+        <h2>Your Expenses</h2>
+        <select id="filter">
+            <option value="">All Categories</option>
+            <option>Food</option>
+            <option>Travel</option>
+            <option>Shopping</option>
+            <option>Education</option>
+            <option>Bills</option>
+            <option>Other</option>
+        </select>
+        <select id="sort">
+            <option value="new">Newest First</option>
+            <option value="old">Oldest First</option>
+            <option value="high">Amount: High to Low</option>
+            <option value="low">Amount: Low to High</option>
+        </select>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+        </table>
+        <p id="empty">No expenses added yet.</p>
+        <button id="export">Export JSON</button>
+        <label class="file">Import JSON
+            <input type="file" id="import" accept=".json">
+        </label>
+        <button id="clear" class="red">Clear All</button>
+    </div>
+
+    <div class="panel">
+        <h2>Currency Converter</h2>
+        <p>Convert this month's spending from INR to USD.</p>
+        <button id="convert">Convert to USD</button>
+        <p id="result"></p>
+    </div>
+
+    <script src="./movie.js"></script>
+</body>
+</html>
